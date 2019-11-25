@@ -1,0 +1,25 @@
+routes:
+  /: home
+  /signup/: members/signup
+  /signin/: members/signin
+  /account/: members/account
+  /mathapp/:
+    controller: channel
+    filter: tag:[mathapp]
+  /milkjar/:
+    controller: channel
+    filter: tag:[milkjar]
+
+collections:
+  /posts/:
+    permalink: /posts/{slug}/
+    template: blog
+    filter: primary_tag:blog
+  /lessons/:
+    permalink: /lessons/{slug}/
+    template: lessons
+    filter: primary_tag:lesson
+
+taxonomies:
+  tag: /tag/{slug}/
+  author: /author/{slug}/

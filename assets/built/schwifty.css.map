@@ -1,0 +1,1 @@
+{"version":3,"sources":["schwifty.css"],"names":[],"mappings":"AAEA,OACE,WACF","file":"schwifty.css","sourcesContent":["/* Just some styles */\n\n.thing {\n  color: green;\n}\n"]}
