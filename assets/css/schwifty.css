@@ -1,5 +1,277 @@
-/* Just some styles */
+/* Table of Contents
+/* ------------------------------------------------------------
 
-.thing {
-  color: green;
+1.  Typography presets
+2.  Grid Stuff
+3.  Layouts
+4.  Margin & Padding Helpers
+5.  Inputs and buttons
+
+*/
+
+/* 1. Typography presets - Some nice typgraphy stuff
+/* ---------------------------------------------------------- */
+
+/* font converted using font-converter.net. thank you! */
+@font-face {
+  font-family: "SFCompactDisplay-Bold";
+  src: url("./SF-Compact-Display-Bold.eot"); /* IE9 Compat Modes */
+  src: url("./SF-Compact-Display-Bold.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+    url("./SF-Compact-Display-Bold.otf") format("opentype"), /* Open Type Font */
+    url("./SF-Compact-Display-Bold.svg") format("svg"), /* Legacy iOS */
+    url("./SF-Compact-Display-Bold.ttf") format("truetype"), /* Safari, Android, iOS */
+    url("./SF-Compact-Display-Bold.woff") format("woff"), /* Modern Browsers */
+    url("./SF-Compact-Display-Bold.woff2") format("woff2"); /* Modern Browsers */
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "SFProText-Medium";
+  src: url("./SF-Pro-Text-Medium.eot"); /* IE9 Compat Modes */
+  src: url("./SF-Pro-Text-Medium.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+    url("./SF-Pro-Text-Medium.otf") format("opentype"), /* Open Type Font */
+    url("./SF-Pro-Text-Medium.svg") format("svg"), /* Legacy iOS */
+    url("./SF-Pro-Text-Medium.ttf") format("truetype"), /* Safari, Android, iOS */
+    url("./SF-Pro-Text-Medium.woff") format("woff"), /* Modern Browsers */
+    url("./SF-Pro-Text-Medium.woff2") format("woff2"); /* Modern Browsers */
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "SFProText-Regular";
+  src: url("./SF-Pro-Text-Regular.eot"); /* IE9 Compat Modes */
+  src: url("./SF-Pro-Text-Regular.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+    url("./SF-Pro-Text-Regular.otf") format("opentype"), /* Open Type Font */
+    url("./SF-Pro-Text-Regular.svg") format("svg"), /* Legacy iOS */
+    url("./SF-Pro-Text-Regular.ttf") format("truetype"), /* Safari, Android, iOS */
+    url("./SF-Pro-Text-Regular.woff") format("woff"), /* Modern Browsers */
+    url("./SF-Pro-Text-Regular.woff2") format("woff2"); /* Modern Browsers */
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "SFProText-RegularItalic";
+  src: url("./SF-Pro-Text-RegularItalic.eot"); /* IE9 Compat Modes */
+  src: url("./SF-Pro-Text-RegularItalic.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+    url("./SF-Pro-Text-RegularItalic.otf") format("opentype"), /* Open Type Font */
+    url("./SF-Pro-Text-RegularItalic.svg") format("svg"), /* Legacy iOS */
+    url("./SF-Pro-Text-RegularItalic.ttf") format("truetype"), /* Safari, Android, iOS */
+    url("./SF-Pro-Text-RegularItalic.woff") format("woff"), /* Modern Browsers */
+    url("./SF-Pro-Text-RegularItalic.woff2") format("woff2"); /* Modern Browsers */
+  font-weight: normal;
+  font-style: italic;
+}
+
+.sg-type-zone {}
+.sg-type-zone h1, .sg-type-zone h2, .sg-type-zone h3 {
+  font-family: "SFCompactDisplay-Bold", HelveticaNeue-CondensedBold, HelveticaNeue, Helvetica, sans-serif;
+  font-weight: bold;
+}
+
+.sg-type-zone p b, .sg-type-zone a b, .sg-type-zone ol b, .sg-type-zone ul b, .sg-type-zone blockquote b {
+  font-family: "SFProText-Medium", HelveticaNeue, Helvetica, sans-serif;
+}
+.sg-type-zone p, .sg-type-zone a, .sg-type-zone ol, .sg-type-zone ul, .sg-type-zone blockquote {
+  font-family: "SFProText-Regular", HelveticaNeue, Helvetica, sans-serif;
+  color: #111;
+}
+.sg-type-zone p em, .sg-type-zone a em, .sg-type-zone ol em, .sg-type-zone ul em, .sg-type-zone blockquote em {
+  font-family: "SFProText-RegularItalic", HelveticaNeue, Helvetica, sans-serif;
+}
+
+.sg-type-zone a {
+  font-family: "SFProText-Medium", HelveticaNeue, Helvetica, sans-serif;
+  color: #3A74F2;
+}
+
+.tf-heading {
+  font-family: "SFCompactDisplay-Bold", HelveticaNeue-CondensedBold, HelveticaNeue, Helvetica, sans-serif;
+  font-weight: bold;
+  font-size: 6.4rem;
+  line-height: 6.4rem;
+}
+.red-text {
+  color: #EA2049;
+}
+
+.tf-subheading {
+  font-family: "SFProText-Medium", HelveticaNeue, Helvetica, sans-serif;
+  font-weight: normal;
+  font-size: 2.4rem;
+  line-height: 3.2rem;
+  max-width:
+}
+
+.fs-normal {
+  font-size: 2.0rem;
+  line-height: 3.2rem;
+}
+
+.fs-smaller {
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+}
+
+.fs-reallysmall {
+  font-size: 1.4rem;
+  line-height: 2.4rem;
+}
+
+/* Tachyons Measurs */
+.measure-wide {   max-width: 68.4rem; }
+.measure {        max-width: 57rem; }
+.measure-narrow { max-width: 36rem; }
+
+/* 2. Grid Stuff - Some nice basic grids
+/* ---------------------------------------------------------- */
+.sg-container {
+  display: block;
+  position: relative;
+  max-width: 1200px;
+  width: 100%;
+}
+
+.sg-centered {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.sg-column {
+  display: block;
+  position: relative;
+}
+
+.sg-column-one   {width: 100%; max-width: 150px;}
+.sg-column-two   {width: 100%; max-width: 360px;}
+.sg-column-three {width: 100%; max-width: 570px;}
+.sg-column-four  {width: 100%; max-width: 780px;}
+.sg-column-five  {width: 100%; max-width: 990px;}
+.sg-column-six   {width: 100%; max-width:1200px;}
+
+.sg-fl {float: left;}
+.sg-fr {float: right;}
+
+
+/* 3. Layouts - Stuff for layouts
+/* ---------------------------------------------------------- */
+/* type weights and stuff */
+.schwifty-tf-bold {
+  font-family: "SFCompactDisplay-Bold", HelveticaNeue-CondensedBold, HelveticaNeue, Helvetica, sans-serif;
+  font-weight: 700;
+}
+
+.sg-fl {float:left;}
+.sg-fr {float:right;}
+.sg-cf {clear:both;}
+.sg-cf::before, .sg-cf::after {
+  content:"";
+  display: table;
+}
+
+/* 4. Margin & Padding Helpers - Margin and Padding helpers
+/* ---------------------------------------------------------- */
+
+.sgma-04  { margin: 0.25em; }
+.sgma-08  { margin: 0.5em; }
+.sgma-16  { margin: 1em; }
+.sgma-32  { margin: 2em; }
+.sgma-48  { margin: 3em; }
+.sgma-64  { margin: 4em; }
+.sgma-128 { margin: 8em; }
+
+.sgmt-04  { margin-top: 0.25em; }
+.sgmt-08  { margin-top: 0.5em; }
+.sgmt-16  { margin-top: 1em; }
+.sgmt-32  { margin-top: 2em; }
+.sgmt-48  { margin-top: 3em; }
+.sgmt-64  { margin-top: 4em; }
+.sgmt-128 { margin-top: 8em; }
+
+.sgmr-04  { margin-right: 0.25em; }
+.sgmr-08  { margin-right: 0.5em; }
+.sgmr-16  { margin-right: 1em; }
+.sgmr-32  { margin-right: 2em; }
+.sgmr-48  { margin-right: 3em; }
+.sgmr-64  { margin-right: 4em; }
+.sgmr-128 { margin-right: 8em; }
+
+.sgmb-04  { margin-bottom: 0.25em; }
+.sgmb-08  { margin-bottom: 0.5em; }
+.sgmb-16  { margin-bottom: 1em; }
+.sgmb-32  { margin-bottom: 2em; }
+.sgmb-48  { margin-bottom: 3em; }
+.sgmb-64  { margin-bottom: 4em; }
+.sgmb-128 { margin-bottom: 8em; }
+
+.sgml-04  { margin-left: 0.25em; }
+.sgml-08  { margin-left: 0.5em; }
+.sgml-16  { margin-left: 1em; }
+.sgml-32  { margin-left: 2em; }
+.sgml-48  { margin-left: 3em; }
+.sgml-64  { margin-left: 4em; }
+.sgml-128 { margin-left: 8em; }
+
+.sgmh-04  { margin-left: 0.25em; margin-right:  0.25em; }
+.sgmh-08  { margin-left: 0.5em; margin-right:  0.5em; }
+.sgmh-16  { margin-left: 1em; margin-right:  1em; }
+.sgmh-32  { margin-left: 2em; margin-right:  2em; }
+.sgmh-48  { margin-left: 3em; margin-right:  3em; }
+.sgmh-64  { margin-left: 4em; margin-right:  4em; }
+.sgmh-128 { margin-left: 8em; margin-right: 8em; }
+
+.sgmv-04  { margin-top: 0.25em; margin-bottom:  0.25em; }
+.sgmv-08  { margin-top: 0.5em; margin-bottom:  0.5em; }
+.sgmv-16  { margin-top: 1em; margin-bottom:  1em; }
+.sgmv-32  { margin-top: 2em; margin-bottom:  2em; }
+.sgmv-48  { margin-top: 3em; margin-bottom:  3em; }
+.sgmv-64  { margin-top: 4em; margin-bottom:  4em; }
+.sgmv-128 { margin-top: 8em; margin-bottom: 8em; }
+
+
+/* 5. Inputs and Buttons - Margin and Padding helpers
+/* ---------------------------------------------------------- */
+.sg_form-container {} /* The signal to say that we have some forms we're working with. */
+
+.sg_form-container input[type="text"], .sg_form-container input[type="email"] {
+  height: 40px;
+  width: 100%;
+  border:none;
+  border-radius: 12px;
+  padding: 8px 10px;
+  width: 100%;
+  max-width: 500px;
+  background: #FFFFFF;
+  box-shadow: 0 2px 13px 0 rgba(255,255,255,0.10);
+  font-family: "SFProText-Medium", HelveticaNeue, Helvetica, sans-serif;
+}
+
+/* Some input widths */
+.sg_iw-420 {
+  max-width: 4.2rem;
+}
+
+::placeholder {
+  color: #A6A6A6;
+}
+
+.button.primary {
+  display: inline-block;
+  height: 40px;
+  color: white;
+  background-color:#EA2049;
+  box-shadow: 0 2px 13px 0 rgba(234,32,73,0.35);
+  border-radius: 12px;
+  padding-left: 30px;
+  padding-right: 30px;
+  font-family: "SFProText-Medium", HelveticaNeue, Helvetica, sans-serif;
+  transition: all 0.21s ease-out;
+  transform:translateY(-2px);
+}
+
+.button.primary:hover {
+  box-shadow: 0 2px 4px 0 rgba(234,32,73,0.6);
+  transform:translateY(0px);
 }

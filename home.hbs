@@ -6,7 +6,7 @@ into the {body} of the default.hbs template --}}
     {{> header-background background=@site.cover_image}} {{!--Special header-image.hbs partial to generate the background image--}}
         <div class="inner">
             {{> "site-nav"}}
-            <div class="site-header-content">
+            <!-- <div class="site-header-content">
                 <h1 class="site-title">
                     {{#if @site.logo}}
                         <img class="site-logo" src="{{img_url @site.logo size="l"}}" alt="{{@site.title}}" />
@@ -15,10 +15,36 @@ into the {body} of the default.hbs template --}}
                     {{/if}}
                 </h1>
                 <h2 class="site-description">{{@site.description}}</h2>
-            </div>
+            </div> -->
         </div>
     </div>
 </header>
+<!-- Temporary landing page HTML -->
+<div class="sg-container sg-centered">
+    <div class="sg-type-zone">
+      {{#if @site.logo}}
+          <img class="site-logo sgmt-64 sgmb-32" src="{{img_url @site.logo size="l"}}" alt="{{@site.title}}" />
+      {{else}}
+          <h1>{{@site.title}}</h1>
+      {{/if}}
+      <h1 class="schwifty-tf-bold measure-wide">How do people <span class="red-text">actually</span> launch their own apps?</h1>
+      <h4 class="tf-subheading measure sgmb-32">When I started making websites almost 9 years ago I immediately wanted to do more. I dreamed of building a software product, the whole kit and kaboodle, from the ground up. But I didn’t know how.</h4>
+      <p class="fs-normal measure">There was no course or class to teach this, so I had to learn, piece by piece, over years. I was eternally frustrated that i couldn’t do more. Finally after years of work I had all of the skills necessary, technically, and creatively to build my own products. And I set out to do that, but products also take marketing skills too. Anyways It was a lot.</p>
+      <p class="fs-normal measure">So I decided to teach everything I know about the subject.</p>
+      <p class="fs-normal measure">I’m sharing literally everything I know about designing, building, launching, and marketing your own digital products.</p>
+      <p class="fs-normal measure">I’m building real products here. These are not cludgy sample apps, These are my apps. I designed them and built them. I love and hate them. I have aspirations for their success, and goals for the artistic and technical achievements I hope to accomplish.</p>
+      <p class="fs-normal measure">If you’re interested in learning how to design products in Sketch, build websites with HTML, CSS, and Javascript, write apps in Swift, architect APIs using Ruby, Rails, and all sorts of SQL, and market your product through email and social media, then sign up for this email letter and I’ll teach you everything I know. For realsy.</p>
+      <h2 class="measure">Subscribe. learn make products from scratch, like a boss.</h2>
+      <div class="sg_form-container">
+        <label class="sg-fl" for="email">Email</label>
+        <input class="sgmb-32 sg-fl sg-cf" type="email" name="email" value="" placeholder="person@example.com">
+        <button class="sg-fl sgml-32 button primary" type="submit" name="submitemail">Subscribe</button>
+        <div class="sg-cf"></div>
+      </div>
+      <p class="fs-reallysmall measure">I’ll email you once a week (probably less), but only useful stuff about designing, developing, and launching your own products. I’ll never share your email with anyone else ever for any reason ever. Like ever. I really really hate email spam. If you have questions please email <a href="mailto:me@kow.fm">me@kow.fm</a>.</p>
+
+    </div>
+</div>
 
 {{!-- The main content area --}}
 <main id="site-main" class="site-main outer">
@@ -37,6 +63,7 @@ into the {body} of the default.hbs template --}}
 </main>
 
 {{> site-header}}
+
 
 {{!-- The #contentFor helper here will send everything inside it up to the matching #block helper found in default.hbs --}}
 {{#contentFor "scripts"}}
